@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ISP</groupId>
+  <artifactId>ISP</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>tst</name>
+ <dependencies>
+    <!-- Other dependencies -->
+
+    <dependency>
+        <groupId>jakarta.servlet.jsp.jstl</groupId>
+        <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+        <version>2.0.0</version>
+    </dependency>
+</dependencies>
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <release>17</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+      </plugin>
+       <plugin>
+        <groupId>com.heroku.sdk</groupId>
+        <artifactId>heroku-maven-plugin</artifactId>
+        <version>3.0.7</version>
+       <configuration>
+        <processTypes>
+		<web>java $JAVA_OPTS -cp test/java:WEB-INF/lib* controller.Main</web>
+			<!--<web>java $JAVA_OPTS -cp tryrun 0.0.1-SNAPSHOT</web>-->
+          <!--<web>java $JAVA_OPTS -cp target/classes:target/dependency/* tryrun</web>-->
+        </processTypes>
+       	 <appName>vert-chocolatine-69715</appName>
+      </configuration>
+       </plugin>
+    </plugins>
+  </build>
+</project>
